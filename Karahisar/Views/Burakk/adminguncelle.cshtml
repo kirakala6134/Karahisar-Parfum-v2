@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>adminguncelle</title>
+    <title>admingiris</title>
+    <link href="~/css1/Stil.css" rel="stylesheet" />
+    <script src="~/js/Script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid" style="display:flex;width:100%;border:none;background-color:black">
+        <div class="row" style="width: 100%; display: flex; align-items: center">
+            <div class="col-md-6" style="width:80%;">
+                <p style="color:black;padding:5px;border:none;margin:auto;font-size:25px;color:gold">merhaba Admin: @Session["Admin"]</p>
+            </div>
+            <div class="col-md-6" style="width:20%;">
+                <div style="display:flex;">
+                    <a href="~/Burakk/adminana" style="display: block; text-align: right; text-decoration: none; color: blue; font-size: 20px;">Ürün ekle|</a>
+                    <a href="~/Burakk/Index" style="display: block; text-align: right; text-decoration: none; color: red; font-size: 20px;">Çıkış</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="genelhak">
+        <h1>Admin Güncelle sayfası</h1>
+    </div>
+    <br />
+    <div class="container" style="width: 50%; margin: auto; border: 1px solid #000000; border-radius: 10px;">
+        @foreach (var deger in Model)
+        {
+            <form method="post" class="form-control">
+                <div class="container">
+                    <input type="hidden" name="urunid" value="@deger.urunid" />
+                    <div style="width:100%;margin:5px auto;">
+                        <label style="display:block;margin:3px auto;font-weight:bold;" class="label-control">Marka Adı</label>
+                        <input style="display:block;margin:3px auto;width:100%;height:30px;" type="text" name="urunmarkaadi" value="@deger.urunmarkaadi" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Ürün Adı</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunadi" value="@deger.urunadi" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Küçük açıklama</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunkucukaciklama" value="@deger.urunkucukaciklama" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Fiyat</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunfiyat" value="@deger.urunfiyat" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Ürün Nota</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunnota" value="@deger.urunnota" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Ürün Açıklama</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunaciklama" value="@deger.urunaciklama" />
+                    </div>
+                    <div style="width: 100%; margin: 5px auto;">
+                        <label style="display: block; margin: 3px auto; font-weight: bold;" class="label-control">Resim url</label>
+                        <input style="display: block; margin: 3px auto; width: 100%; height: 30px;" type="text" name="urunresim" value="@deger.urunresim" />
+                    </div>
+                    <div class="text-center" style="width: 100%; margin: 5px auto;">
+                        <button style="width: 100%; margin: 5px auto;" class="btn btn-warning">Güncelle</button>
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+</body>
+</html>

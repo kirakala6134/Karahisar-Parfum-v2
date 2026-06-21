@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Karahisar.Models.UrunTablo>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var urun in Model)
+    {
+        <a href="/Burakk/Urunozel?gelenid=@urun.urunid" class="dropdown-item d-flex align-items-center border-bottom py-2" style="white-space: normal;">
+            <img src="~/img/@urun.urunresim" style="width: 40px; height: 40px; object-fit: cover;" class="me-3 rounded">
+            <div>
+                <div class="fw-bold text-dark" style="font-size: 14px;">@urun.urunadi</div>
+                <div class="text-warning fw-bold" style="font-size: 13px;">@String.Format("{0:c}", urun.urunfiyat)</div>
+            </div>
+        </a>
+    }
+}
+else
+{
+    <span class="dropdown-item text-muted py-2">Ürün bulunamadı...</span>
+}
+<style>
+    .dropdown-item:active {
+        background-color: #ffc107;
+        color: #212529;
+    }
+</style>

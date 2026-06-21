@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="karahisardbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'karahisardb.dbo.admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin" />
+            <PropertyRef Name="adminsifre" />
+          </Key>
+          <Property Name="admin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminsifre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MusteriTablo">
+          <Key>
+            <PropertyRef Name="musteriid" />
+          </Key>
+          <Property Name="musteriid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="musteriadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="musteriemail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="musteriparola" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="musteriparolatekrar" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="musteritel" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="musteriadres" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="musterisoyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SepetTablo">
+          <Key>
+            <PropertyRef Name="sepetid" />
+          </Key>
+          <Property Name="sepetid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urunid" Type="smallint" Nullable="false" />
+          <Property Name="musteriid" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrunTablo">
+          <Key>
+            <PropertyRef Name="urunid" />
+          </Key>
+          <Property Name="urunid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urunadi" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="urunmarkaadi" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="urunkucukaciklama" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="urunfiyat" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="urunmarkaresim" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="urunresim" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="urunnota" Type="text" Nullable="false" />
+          <Property Name="urunaciklama" Type="text" Nullable="false" />
+          <Property Name="urunnotaresim" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="uruncinsiyet" Type="nvarchar" MaxLength="10" />
+          <Property Name="uruncoksatanlar" Type="nvarchar" MaxLength="15" />
+          <Property Name="urunyeniparfum" Type="nvarchar" MaxLength="15" />
+          <Property Name="uruntrendler" Type="nvarchar" MaxLength="15" />
+          <Property Name="urunresim2" Type="nvarchar" MaxLength="150" />
+          <Property Name="urunresim3" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_SepetTablo_MusteriTablo">
+          <End Role="MusteriTablo" Type="Self.MusteriTablo" Multiplicity="1" />
+          <End Role="SepetTablo" Type="Self.SepetTablo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusteriTablo">
+              <PropertyRef Name="musteriid" />
+            </Principal>
+            <Dependent Role="SepetTablo">
+              <PropertyRef Name="musteriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SepetTablo_UrunTablo">
+          <End Role="UrunTablo" Type="Self.UrunTablo" Multiplicity="1" />
+          <End Role="SepetTablo" Type="Self.SepetTablo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrunTablo">
+              <PropertyRef Name="urunid" />
+            </Principal>
+            <Dependent Role="SepetTablo">
+              <PropertyRef Name="urunid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="karahisardbModel1StoreContainer">
+          <EntitySet Name="MusteriTablo" EntityType="Self.MusteriTablo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SepetTablo" EntityType="Self.SepetTablo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrunTablo" EntityType="Self.UrunTablo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="admin" EntityType="Self.admin" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [admin].[admin] AS [admin], 
+    [admin].[adminsifre] AS [adminsifre]
+    FROM [dbo].[admin] AS [admin]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_SepetTablo_MusteriTablo" Association="Self.FK_SepetTablo_MusteriTablo">
+            <End Role="MusteriTablo" EntitySet="MusteriTablo" />
+            <End Role="SepetTablo" EntitySet="SepetTablo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SepetTablo_UrunTablo" Association="Self.FK_SepetTablo_UrunTablo">
+            <End Role="UrunTablo" EntitySet="UrunTablo" />
+            <End Role="SepetTablo" EntitySet="SepetTablo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="karahisardbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MusteriTablo">
+          <Key>
+            <PropertyRef Name="musteriid" />
+          </Key>
+          <Property Name="musteriid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="musteriadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musteriemail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musteriparola" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musteriparolatekrar" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musteritel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musteriadres" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="musterisoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SepetTablo" Relationship="Self.FK_SepetTablo_MusteriTablo" FromRole="MusteriTablo" ToRole="SepetTablo" />
+        </EntityType>
+        <EntityType Name="SepetTablo">
+          <Key>
+            <PropertyRef Name="sepetid" />
+          </Key>
+          <Property Name="sepetid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunid" Type="Int16" Nullable="false" />
+          <Property Name="musteriid" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="MusteriTablo" Relationship="Self.FK_SepetTablo_MusteriTablo" FromRole="SepetTablo" ToRole="MusteriTablo" />
+          <NavigationProperty Name="UrunTablo" Relationship="Self.FK_SepetTablo_UrunTablo" FromRole="SepetTablo" ToRole="UrunTablo" />
+        </EntityType>
+        <EntityType Name="UrunTablo">
+          <Key>
+            <PropertyRef Name="urunid" />
+          </Key>
+          <Property Name="urunid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunadi" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="urunmarkaadi" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="urunkucukaciklama" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="urunfiyat" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="urunmarkaresim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="urunresim" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="urunnota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urunaciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urunnotaresim" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uruncinsiyet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="uruncoksatanlar" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="urunyeniparfum" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="uruntrendler" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="urunresim2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="urunresim3" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SepetTablo" Relationship="Self.FK_SepetTablo_UrunTablo" FromRole="UrunTablo" ToRole="SepetTablo" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin1" />
+            <PropertyRef Name="adminsifre" />
+          </Key>
+          <Property Name="admin1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminsifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SepetTablo_MusteriTablo">
+          <End Role="MusteriTablo" Type="Self.MusteriTablo" Multiplicity="1" />
+          <End Role="SepetTablo" Type="Self.SepetTablo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MusteriTablo">
+              <PropertyRef Name="musteriid" />
+            </Principal>
+            <Dependent Role="SepetTablo">
+              <PropertyRef Name="musteriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SepetTablo_UrunTablo">
+          <End Role="UrunTablo" Type="Self.UrunTablo" Multiplicity="1" />
+          <End Role="SepetTablo" Type="Self.SepetTablo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrunTablo">
+              <PropertyRef Name="urunid" />
+            </Principal>
+            <Dependent Role="SepetTablo">
+              <PropertyRef Name="urunid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="karahisardbEntitiesev1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MusteriTablo" EntityType="Self.MusteriTablo" />
+          <EntitySet Name="SepetTablo" EntityType="Self.SepetTablo" />
+          <EntitySet Name="UrunTablo" EntityType="Self.UrunTablo" />
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <AssociationSet Name="FK_SepetTablo_MusteriTablo" Association="Self.FK_SepetTablo_MusteriTablo">
+            <End Role="MusteriTablo" EntitySet="MusteriTablo" />
+            <End Role="SepetTablo" EntitySet="SepetTablo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SepetTablo_UrunTablo" Association="Self.FK_SepetTablo_UrunTablo">
+            <End Role="UrunTablo" EntitySet="UrunTablo" />
+            <End Role="SepetTablo" EntitySet="SepetTablo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="karahisardbModel1StoreContainer" CdmEntityContainer="karahisardbEntitiesev1">
+          <EntitySetMapping Name="MusteriTablo">
+            <EntityTypeMapping TypeName="karahisardbModel1.MusteriTablo">
+              <MappingFragment StoreEntitySet="MusteriTablo">
+                <ScalarProperty Name="musteriid" ColumnName="musteriid" />
+                <ScalarProperty Name="musteriadi" ColumnName="musteriadi" />
+                <ScalarProperty Name="musteriemail" ColumnName="musteriemail" />
+                <ScalarProperty Name="musteriparola" ColumnName="musteriparola" />
+                <ScalarProperty Name="musteriparolatekrar" ColumnName="musteriparolatekrar" />
+                <ScalarProperty Name="musteritel" ColumnName="musteritel" />
+                <ScalarProperty Name="musteriadres" ColumnName="musteriadres" />
+                <ScalarProperty Name="musterisoyadi" ColumnName="musterisoyadi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SepetTablo">
+            <EntityTypeMapping TypeName="karahisardbModel1.SepetTablo">
+              <MappingFragment StoreEntitySet="SepetTablo">
+                <ScalarProperty Name="sepetid" ColumnName="sepetid" />
+                <ScalarProperty Name="urunid" ColumnName="urunid" />
+                <ScalarProperty Name="musteriid" ColumnName="musteriid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunTablo">
+            <EntityTypeMapping TypeName="karahisardbModel1.UrunTablo">
+              <MappingFragment StoreEntitySet="UrunTablo">
+                <ScalarProperty Name="urunid" ColumnName="urunid" />
+                <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+                <ScalarProperty Name="urunmarkaadi" ColumnName="urunmarkaadi" />
+                <ScalarProperty Name="urunkucukaciklama" ColumnName="urunkucukaciklama" />
+                <ScalarProperty Name="urunfiyat" ColumnName="urunfiyat" />
+                <ScalarProperty Name="urunmarkaresim" ColumnName="urunmarkaresim" />
+                <ScalarProperty Name="urunresim" ColumnName="urunresim" />
+                <ScalarProperty Name="urunnota" ColumnName="urunnota" />
+                <ScalarProperty Name="urunaciklama" ColumnName="urunaciklama" />
+                <ScalarProperty Name="urunnotaresim" ColumnName="urunnotaresim" />
+                <ScalarProperty Name="uruncinsiyet" ColumnName="uruncinsiyet" />
+                <ScalarProperty Name="uruncoksatanlar" ColumnName="uruncoksatanlar" />
+                <ScalarProperty Name="urunyeniparfum" ColumnName="urunyeniparfum" />
+                <ScalarProperty Name="uruntrendler" ColumnName="uruntrendler" />
+                <ScalarProperty Name="urunresim2" ColumnName="urunresim2" />
+                <ScalarProperty Name="urunresim3" ColumnName="urunresim3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="karahisardbModel1.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="admin1" ColumnName="admin" />
+                <ScalarProperty Name="adminsifre" ColumnName="adminsifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

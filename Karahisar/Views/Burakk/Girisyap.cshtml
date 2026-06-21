@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Girisyap";
+    Layout = "~/sablon.cshtml";
+}
+<script src="~/js/Script.js"></script>
+<div id="genelhak">
+    <h1>Kayıt Ol</h1>
+</div>
+<br />
+<div class="kaydolyap">
+    <div class="mesaj text-center">
+        <h2 style="font-weight:300;color:red;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@ViewBag.mesaj</h2>
+    </div>
+    <form method="post">
+        <div class="inputlar">
+            <div class="uye">
+                <img src="~/img/resimler/giris/user-head.png" alt="Alternate Text" />
+            </div>
+            <div style="display:flex;align-items:center;">
+                <div class="col-6">
+                    <label for="kadi">Adınız</label>
+                    <input type="text" name="kullanici_adi" id="kadi" required placeholder="adınız">
+                </div>
+                <div class="col-6">
+                    <label for="ksoyadi">Soyad</label>
+                    <input type="text" name="kullanici_soyadi" id="kadi" required placeholder="soyadınız">
+                </div>
+            </div>
+            <div class="">
+                <label for="kemail">E-Mail</label>
+                <input type="email" name="kullanici_email" id="kemail" required placeholder="e-mail adresi">
+            </div>
+            <div class="">
+                <label for="ktel">Telefon</label>
+                <input type="tel" name="kullanici_telno" id="ktel" required minlength="15" maxlength="15" placeholder="(xxx) xxx xx xx">
+            </div>
+            <div class="">
+                <label for="kparola">Şifre</label>
+                <input type="password" name="kullanici_parola" id="kparola" required minlength="4" maxlength="64" placeholder="••••••••">
+            </div>
+            <div class="">
+                    <label for="kparolat">Şifre Tekrar</label>
+                    <input type="password" name="kullanici_parola_tekrar" id="kparolat" required minlength="4" maxlength="64" placeholder="••••••••">
+            </div>
+            <div class="">
+                <label for="kadi">Adresiniz</label>
+                <textarea id="kadres" name="kullanici_adres" rows="4" cols="50" placeholder="adresinizi giriniz:" maxlength="250" style="resize:none;height:auto"></textarea>
+            </div>
+            <label for="ksöz" class="sozlesme" style="margin-top:5px;">
+                <input type="checkbox" name="kullanici_sözlesme" id="ksöz" required>
+                <a href="#">Üyelik sözleşmesini</a> Okudum ve kabul ediyorum
+            </label>
+            <input type="submit" name="btnkaydol" id="kaydolbtn" class="btn btn-kayit" value="Kayıt Ol">
+        </div>
+    </form>
+</div>
+
+<div class="switch-link">
+    Zaten hesabınız var mı?
+    <a href="~/Burakk/giris">Giriş yapın</a>
+</div>

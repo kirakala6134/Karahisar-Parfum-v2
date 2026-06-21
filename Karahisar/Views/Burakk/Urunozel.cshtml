@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Urunozel";
+    Layout = "~/sablon.cshtml";
+}
+<script src="~/js/Script.js"></script>
+@foreach (var gelenid in Model)
+ {
+    <div class="container">
+        <div class="row Anaurun" style="margin:20px auto; gap: 20px;">
+            <div class="col-12 col-md-2 text-center" style="padding:10px;">
+                <div class="row">
+                    <div class="col-4 col-md-12">
+                        <img src="~/img/@gelenid.urunresim" style="width: 100px; border: 1px solid #ccc; padding: 5px; margin-bottom: 10px; min-width: 50px;max-height:100px; "onclick="degis(this)" />
+                    </div>
+                    <div class="col-4 col-md-12">
+                        <img src="~/img/@gelenid.urunresim2" style="width: 100px; border: 1px solid #ccc; padding: 5px; margin-bottom: 10px; min-width: 50px; max-height: 100px;"onclick="degis(this)" />
+                    </div>
+                    <div class="col-4 col-md-12">
+                        <img src="~/img/@gelenid.urunresim3" style="width: 100px; border: 1px solid #ccc; padding: 5px; min-width: 50px; max-height: 100px;"onclick="degis(this)" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 urunresimdiv" style="width: 30%; border: 1px solid #ccc; border-radius: 15px; min-width: 350px;">
+                <img src="~/img/@gelenid.urunresim" style=" text-align: center;width:100%;min-width:300px;max-height:350px;" class="img-fluid text-center" id="urunresim" />
+            </div>
+            <div class="col-md-4 urunaciklama">
+                <h4 style="margin:0">@gelenid.urunadi<i class="fa-regular fa-heart" style="margin-left:10px; cursor:pointer; color:red;" onclick="favori(this)"></i></h4>
+                <p style="color: gray; font-size: 25px; margin-bottom: 10px;">@gelenid.urunkucukaciklama</p>
+                <p style="margin-bottom:10px;"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+                <a href="~/Burakk/@gelenid.urunmarkaadi"><img src="~/img/@gelenid.urunmarkaresim" style="width: 100px; padding: 10px; border: 1px solid #ccc;margin-bottom:10px;" /></a>
+                <h2 style="margin-bottom: 30px;font-size:40px">@String.Format("{0:c}", gelenid.urunfiyat)</h2>
+                <div class="container anaadet" style="width:100%;">
+                    <div class="row adet">
+                        <div class="col-md-4" style="display:flex;align-items:center">
+                            <button type="button" class="btn btn-light" style="margin: 0px; border: 1px solid #000000;border-radius:0px;height:40px;" onclick="changeAdet(1)">+</button>
+                            <b id="adetSayisi" style="font-size: 20px; border: 1px solid #000000; width: 50px; text-align: center; height: 40px;padding:5px;">1</b>
+                            <button type="button" class="btn btn-light" style="margin: 0px; border: 1px solid #000000; border-radius: 0px; height: 40px;" onclick="changeAdet(-1)">-</button>
+                        </div>
+                        <div class="col-md-8">
+                            <a href="~/Burakk/sepeteekle?id=@gelenid.urunid"><button type="button" class="btn btn-warning sepetekle" style="width:100%;min-width:300px;  height:50px;"><i class="fa-solid fa-cart-shopping"></i>Sepete Ekle</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row urunnota">
+            <div class="col-md-12">
+                <div id="accordion">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                                Ürün Notaları
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    @gelenid.urunnota
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+                                Ürün Açıklaması
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                            <div class="card-body">
+                                @gelenid.urunaciklama
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+                                Nota Piramiti
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                            <div class="card-body" style="text-align: center;">
+                                <img src="~/img/@gelenid.urunnotaresim" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-12">
+                <div class="Yorumlar">
+                    <h2 style="width:100%;color:gold;text-align:center">Yorumlar</h2><hr style="margin:0px 50px;" />
+                    <div class="Yorum" style="margin-top:20px;border:1px solid #000000;text-align:center">
+                        <p style="margin:0px;">Yorum Yok</p><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ }
+

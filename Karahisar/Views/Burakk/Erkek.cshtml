@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Erkek";
+    Layout = "~/sablon.cshtml";
+}
+
+<div id="genelhak">
+    <h1>Erkek Parfümleri</h1>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var gelenid in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-3 text-center urunliste" style="padding: 5px;">
+                <a href="~/Burakk/Urunozel?gelenid=@gelenid.urunid" style="color: black; text-decoration: none">
+                    <div style="border: 1px solid gray; font-size: 16px;  border-radius:10px;" class="urunkutu">
+                        <div style="padding: 5px; border: 1px solid gray; margin: 5px; border-radius: 10px;">
+                            <img src="~/img/@gelenid.urunresim" alt="Alternate Text" class="img-fluid" style="width:250px;" />
+                        </div>
+                        <p style="margin: 0px;">@gelenid.urunadi</p>
+                        <p style="color:gray;opacity:0.8;margin:2px;"><i class="fa-solid fa-spray-can-sparkles"></i>@gelenid.urunmarkaadi</p>
+
+                        <div style="margin-top:10px;">
+                            <strong style="font-size:20px;">@String.Format("{0:c}", gelenid.urunfiyat)</strong>
+                        </div>
+                        <a href="~/Burakk/sepeteekle?id=@gelenid.urunid" class="btn btn-warning" style="width:200px;margin:5px;">sepete ekle</a>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "giris";
+    Layout = "~/sablon.cshtml";
+}
+<div id="genelhak">
+    <h1>Giriş Yap</h1>
+</div>
+<br />
+<div class="girisyap">
+    <div class="mesaj text-center">
+        <h2 style="font-weight:300;color:red;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@ViewBag.hata2</h2>
+    </div>
+    <form method="post">
+        <div class="inputlar">
+            <div class="uye">
+                <img src="~/img/resimler/giris/user-head.png" alt="Alternate Text" />
+            </div>
+            <label for="kadi">Adınız</label>
+            <input type="hidden" name="form" value="giris" />
+            <input type="text" name="kullanici_adi" id="kadi" required placeholder="Kullanıcı adınızı giriniz">
+            <label for="kparola">Parolanız</label>
+            <input type="password" name="kullanici_parola" id="kparola" required placeholder="••••••••" minlength="4" maxlength="64">
+            <label for="kparolat">Parolanızı Tekrar Giriniz</label>
+            <input type="password" name="kullanici_parola_tekrar" id="kparolat" required placeholder="••••••••" minlength="4" maxlength="64">
+            <input type="submit" name="btngiris" id="girdibtn" value="Giriş Yapın">
+        </div>
+    </form>
+</div>
+<div class="switch-link">
+    Zaten hesabınız var mı?
+    <a href="~/Burakk/Girisyap">Kayıt olun</a>
+</div>

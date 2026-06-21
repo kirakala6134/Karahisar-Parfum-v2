@@ -1,0 +1,493 @@
+﻿*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.anaresim {
+    width: 10%;
+    margin-right: 50px;
+}
+.anaresim img{
+    width:100%;
+    min-width:150px;
+}
+.buyukresim{
+    width:70%;
+    text-align:center;
+    margin:10px auto;
+}
+.girisyap {
+    width: 50%;
+    min-width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+.kaydolyap {
+    width: 50%;
+    min-width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+}
+.inputlar {
+    width: 80%;
+    margin: auto;
+    height: auto;
+    text-align: center;
+    border: 1px solid #111;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+.inputlar input {
+    display: block;
+    border-radius:5px;
+}
+.inputlar input,textarea {
+    width: 80%;
+    height:40px;
+    margin: 3px auto;
+}
+.inputlar textarea{
+    border-radius:5px;
+}
+.inputlar input::placeholder{
+    padding:10px;
+    margin: 0px 10px;
+}
+.inputlar textarea::placeholder {
+    padding: 10px;
+    margin: 0px 10px;
+}
+.inputlar label {
+    width:80%;
+    text-align:left;
+    font-weight:bold;
+    font-size: 12px;
+    margin:5px auto;
+}
+input[type=text], input[type=email], input[type=password], input[type=tel],textarea {
+    border: 1px solid black
+}
+.inputlar input[type=checkbox] {
+    display: inline;
+    width: 25px;
+    height: 15px;
+    margin: 0px;
+}
+.inputlar input[type=submit] {
+    width: 50%;
+    height: 50px;
+    margin: 10px auto;
+    border:1px solid black;
+    background-color: #fff;
+    color: black;
+}
+.inputlar input[type=submit]:hover {
+    background-color: black;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.uye {
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+}
+.uye img {
+    width: 50%;
+    text-align: center;
+    margin: 0px auto;
+}
+#genelhak {
+    text-align: center;
+    width: 100%;
+    height: 150px;
+    color: gold;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #222;
+}
+#genelhak h1 {
+    width: 50%;
+    margin:auto;
+    display:block;
+    border-bottom: 1px solid aliceblue;
+}
+#kucukSepetPenceresi .dropdown-item {
+    font-size: 14px !important;
+}
+.navbar-nav .nav-link {
+    font-size: 16px !important;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#banner {
+    width: 100%;
+    min-width:100%;
+}
+#banner img {
+    width: 100%;
+    min-width: 100%;
+    vertical-align: top;
+}
+.footer * h3 {
+    border-bottom: 1px solid aliceblue;
+    margin: 5px;
+}
+#linkler li {
+    position: relative;
+}
+.footer {
+    background: black;
+    display: flex;
+    color: white;
+    width: 100%;
+    padding: 60px 30px;
+    margin-top: 40px;
+    border-bottom: 1px solid #222;
+}
+.footer-kutu {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 40px;
+}
+.footer-liste h3 {
+    color: gold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.footer-liste ul {
+    list-style: none;
+    padding: 0;
+    text-decoration: none;
+}
+.footer-liste ul li {
+    margin-bottom: 12px;
+}
+.footer-liste a {
+    color: #ccc;
+    font-size: 16px;
+    transition: color 0.3s;
+    display: block;
+    text-decoration: none;
+}
+.footer-liste a:hover {
+   color: gold;
+}
+.footerqr {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+.footerqr i {
+    width: 15%;
+    padding-right: 20px;
+}
+.footerqr i:hover {
+   cursor: pointer;
+}
+#iletisim {
+    display: flex;
+    text-align: center;
+    margin: 5px auto;
+}
+.bilgi {
+    margin-bottom:5px;
+    border-left: 4px solid gold;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: all 0.3s ease;
+    height:60px;
+    width:auto;
+}
+.parfumoneri {
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap:wrap;
+}
+.sezonlukparfum {
+    overflow: hidden;
+}
+.sezonlukparfum img {
+    width: 100%;
+    height: auto;
+}
+.parfumresim img:hover {
+    transform: scale(1.02);
+    transition: 1s;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.sezonlukparfum img:hover {
+    transform: scale(1.02);
+    transition: 1s;
+}
+.bilgi h3{
+    color:gold;
+}
+.tescil {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+.tescil p {
+   color: grey;
+   font-size: 15px;
+   margin: 0;
+}
+.navbarmenu {
+    width:100%;
+    display: flex;
+}
+.urunkutu {
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.urunliste .urunkutu:hover {
+    border: 3px solid black;
+    transform: scale(1.01);
+    transition: 0.4s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.qrkod {
+   width: 40%;
+}
+.qrkod img {
+    width: 100%;
+}
+#kurumsal, #markalar_footer, #kategori_footer, #Ozel_footer, #yardim_footer, #qrkod_footer, #hakkimizda {
+    width: 25%;
+    text-align: center;
+}
+.switch-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+.switch-link a {
+    color: #111;
+    font-weight: 600;
+    text-decoration: underline;
+}
+td, th {
+    overflow: hidden;
+}
+@media (max-width: 1500px) {
+    #registerform {
+        display: block;
+    }
+    #registerfoto {
+        width: 100%;
+    }
+    .kaydolyap{
+        margin:0px auto;
+    }
+    .girisyap {
+        margin: 0px auto;
+    }
+}
+@media (max-width: 1200px) {
+    .iletisimbilgi{
+        margin-left:50px;
+
+    }
+}
+@media (max-width: 1384px) {
+    .aramacubuk {
+        width: 200px;
+    }
+}
+@media (max-width: 1150px) {
+    .aramacubuk {
+        display: none;
+    }
+}
+@media (max-width: 800px) {
+    #banner img {
+        width: 100%;
+        vertical-align: top;
+        height: 25px;
+    }
+
+    .magazalar {
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 900px) {
+    #banner img {
+        width: 100%;
+        vertical-align: top;
+        height: 25px;
+    }
+    .parfumoneri {
+        flex-wrap: wrap !important;
+        display: block;
+    }
+    .aramacubuk {
+        display: block;
+        width: 100%;
+    }
+    .arabeni{
+        display:block;
+        width:100% !important;
+    }
+    #kucukSepetPenceresi{
+        display:none !important;
+    }
+}
+@media (max-width: 992px){
+    .bilgi {
+        height: 90px;
+    }
+    .mailp{
+        font-size:11px;
+    }
+    .urunaciklama{
+        text-align:center;
+    }
+    .adet {
+        flex-wrap: nowrap;
+        gap: 5px;
+        margin-left: 100px;
+    }
+}
+@media (max-width: 1000px) {
+    .urunnota img {
+        max-width: 50%;
+    }
+
+    #banner img {
+        width: 100%;
+        vertical-align: top;
+        height: 25px;
+    }
+
+    .iban {
+        font-size: 10px;
+    }
+    .adminurun{
+        width:50%;
+    }
+} 
+@media (max-width: 720px) {
+    .sezonlukparfum {
+        padding-top: 10px;
+    }
+    .yazi p {
+        display: none;
+    }
+    #hikaye {
+        display: none;
+    }
+    #banner img {
+        width: 100%;
+        vertical-align: top;
+        height: 25px;
+    }
+    .Anaurun {
+        text-align: center;
+    }
+    .urunresimdiv {
+        margin-left:50px;
+    }
+    .kaydolyap {
+        margin: 0px auto;
+        width: 100%;
+    }
+    .girisyap {
+        margin: 0px auto;
+        width: 100%;
+    }
+}
+@media (max-width: 576px) {
+    .footer-kutu {
+        flex-direction: column;
+    }
+    .footer-liste {
+        width: 100%;
+    }
+    .footerqr {
+        flex-direction: column;
+        gap: 20px;
+    }
+    #banner img {
+        width: 100%;
+        vertical-align: top;
+    }
+    .buton input[type=submit] {
+        width: 100px;
+    }
+    #adet {
+        width: 30%;
+    }
+    .urunresimdiv {
+        margin-left: 60px;
+    }
+}
+@media (max-width: 400px) {
+    .urunresimdiv {
+        margin-left: 20px;
+    }
+}
+@media (max-width: 375px) {
+    .urunresimdiv {
+        margin-left: 10px;
+    }
+}
+@media (max-width: 991px) {
+    .footer-kutu {
+        flex-wrap: wrap;
+    }
+
+    .footer-liste {
+        width: 45%;
+    }
+
+    .Anaurun {
+        text-align: center;
+    }
+
+    .urunaciklama {
+        margin:auto;
+    }
+    .adet{
+        margin:5px auto;
+    }
+    .urunresimdiv {
+        margin:auto;
+    }
+}
+@media (max-width: 770px){
+    .fyt{
+        display:block;
+        text-align:center;
+    }
+    #sonuc{
+        display:block;
+        text-align:center;
+    }
+}

@@ -1,0 +1,231 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/css1/Stil.css" rel="stylesheet" />
+    <script src="~/js/Script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div id="banner">
+        <img src="~/img/resimler/karahisarbannerjpgreal.jpg" alt="Alternate Text" class="" />
+    </div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top navbarmenu">
+        <div class="container-fluid">
+            <div class="anaresim">
+                <a class="navbar-brand" href="~/Burakk/Index">
+                    <img src="~/img/resimler/Karahisar Parfüm transparan logo.png" alt="Alternate Text" class="img-fluid" style="" />
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav" style="width:100%;">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="~/Views/Burakk/Urunler.cshtml" role="button" data-bs-toggle="dropdown">Tüm Ürünler</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="~/Burakk/Kadın">Kadın Parfümleri</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Erkek">Erkek Parfümleri</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Unisex">Unisex Parfümler</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Coksatanlar">Çok Satanlar</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Yeniparfumler">Yeni Ürünler</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Burakk/Kadın">Kadın Parfüm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Burakk/Erkek">Erkek Parfüm</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown">Markalar</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="~/Burakk/Urunler">Tüm Markalar</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Amaouage">Amouage</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Dior">Dior</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Creed">Creed</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Carolina">Carolina</a></li>
+                            <li><a class="dropdown-item" href="~/Burakk/Chanel">Chanel</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Burakk/hakkimizda">Hakkımızda</a>
+                    </li>
+                    <li class="aramacubuk" style="position: relative;">
+                        <div class="d-flex">
+                            <input class="arabeni form-control me-2"
+                                   type="search"
+                                   id="canliAramaKutusu"
+                                   placeholder="En iyi Parfümleri Bul"
+                                   style="height:30px;margin:5px auto;width:250px;"
+                                   autocomplete="off" />
+                        </div>
+
+                        <div id="aramaSonuclariPenceresi" class="dropdown-menu shadow w-100" style="display: none; position: absolute; top: 100%; left: 0; z-index: 1000; padding: 0; max-height: 300px; overflow-y: auto;">
+                        </div>
+                    </li>
+                </ul>
+                @if (Session["kullanici"] == null)
+                {
+                    <ul class="navbar-nav" style="text-align: center; display: flex; justify-content: space-around; align-items: center; width: 30%;">
+                        <li class="nav-item" style="display: flex;margin-top:5px; ">
+                            <a class="nav-item" href="#" style="text-decoration: none;"><p style="color:darkgray;padding:5px;border:none;margin-top:4px;flex-wrap:nowrap;">merhaba misafir</p></a>
+                            <a class="nav-link" href="~/Burakk/giris"><i class="fa-solid fa-user" style="flex-wrap: nowrap;"></i>Giriş</a>
+                            <a class="nav-link" href="~/Burakk/giris">
+                                <i class="fa-solid fa-cart-shopping" style="flex-wrap: nowrap;"></i> Sepet
+                            </a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav" style=" text-align: center; display: flex; justify-content:space-around; align-items: center; width: 35%;">
+                        <li class="nav-item sepet-kapsayici" style="display:flex; position: relative;">
+                            <a class="nav-item" href="#" style="text-decoration: none;"><p style="color:darkgray;padding:5px;border:none;margin:auto;">merhaba @Session["kullanici"]</p></a>
+                            <a class="nav-link" href="~/Burakk/cikisyap"><i class="fa-solid fa-user"></i>Çıkış</a>
+
+                            <a class="nav-link" href="~/Burakk/sepet">
+                                <i class="fa-solid fa-cart-shopping"></i> Sepet
+                                <div id="kucukSepetPenceresi" class="dropdown-menu shadow" style="display: none; position: absolute; top: 100%; right: 0; z-index: 1000; width: 280px; padding: 0; max-height: 300px; overflow-y: auto;">
+                                    <div class="text-center p-3 text-muted">Sepet yükleniyor...</div>
+                                </div>
+                            </a>
+                            <p style="margin:auto 5px;">@Session["uyeid"]</p>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <br />
+    <div class="footer">
+        <div class="footer-kutu">
+            <div class="footer-liste">
+                <h3>Öne Çıkanlar</h3>
+                <ul>
+                    <li><a href="~/Burakk/Coksatanlar">Çok Satanlar</a></li>
+                    <li><a href="~/Burakk/Kadın">Kadın Parfümleri</a></li>
+                    <li><a href="~/Burakk/Erkek">Erkek Parfümleri</a></li>
+                    <li><a href="~/Burakk/Yeniparfumler">En Yeni Parfümler</a></li>
+                </ul>
+            </div>
+            <div class="footer-liste">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="~/Burakk/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="~/Burakk/hakkimizda">Mağazalar</a></li>
+                    <li><a href="~/Burakk/iletisim">İletişim</a></li>
+                    <li><a href="">Bilgi Güvenliği</a></li>
+                    <li><a href="">+1 (917) 810-3415</a></li>
+                </ul>
+            </div>
+            <div class="footer-liste">
+                <h3>Markalar</h3>
+                <ul>
+                    <li><a href="~/Burakk/Amaouage">Amouage</a></li>
+                    <li><a href="~/Burakk/Chanel">Chanel</a></li>
+                    <li><a href="~/Burakk/Creed">Creed</a></li>
+                    <li><a href="~/Burakk/Carolina">Carolina</a></li>
+                    <li><a href="~/Burakk/Dior">Dior</a></li>
+                </ul>
+            </div>
+            <div class="footer-liste">
+                <h3>Kategoriler</h3>
+                <ul>
+                    <li><a href="~/Burakk/Kadın">Kadın</a></li>
+                    <li><a href="~/Burakk/Erkek">Erkek</a></li>
+                    <li><a href="~/Burakk/Unisex">Unisex</a></li>
+                    <li><a href="">Çiçeksi/Baharatlı</a></li>
+                    <li><a href="">Deri/Odunsu</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerqr">
+            <img class="qrkod" src="~/img/resimler/items/etbis.webp" alt="QR">
+            <div id="iletisim">
+                <i class="fa-brands fa-instagram"></i><i class="fa-brands fa-x-twitter"></i><i class="fa-solid fa-phone"></i>
+            </div>
+        </div>
+    </div>
+    <div class="tescil">
+        <p>Copyright 2025 © Karahisar Parfüm® Tüm hakları saklıdır.</p>
+    </div>
+    <script>
+        // Küçük AI yardımları :) maksat güzel olsun
+        document.getElementById('canliAramaKutusu').addEventListener('input', function () {
+            let kelime = this.value;
+            let pencere = document.getElementById('aramaSonuclariPenceresi');
+
+            if (kelime.length >= 2) {
+                fetch('/Burakk/CanliAramaPartial?kelime=' + encodeURIComponent(kelime))
+                    .then(response => response.text())
+                    .then(htmlData => {
+                        if (htmlData.trim() !== '') {
+                            pencere.innerHTML = htmlData;
+                            pencere.style.display = 'block';
+                        } else {
+                            pencere.style.display = 'none';
+                        }
+                    })
+                    .catch(err => console.error("Arama hatası:", err));
+            } else {
+                pencere.innerHTML = '';
+                pencere.style.display = 'none';
+            }
+        });
+        document.addEventListener('click', function (e) {
+            let aramaCubugu = document.querySelector('.aramacubuk');
+            let pencere = document.getElementById('aramaSonuclariPenceresi');
+
+            if (aramaCubugu && !aramaCubugu.contains(e.target)) {
+                pencere.style.display = 'none';
+            }
+        });
+        document.getElementById('canliAramaKutusu').addEventListener('click', function () {
+            let kelime = this.value;
+            let pencere = document.getElementById('aramaSonuclariPenceresi');
+            if (kelime.length >= 2 && pencere.innerHTML.trim() !== '') {
+                pencere.style.display = 'block';
+            }
+        });
+
+        let sepetKapsayici = document.querySelector('.sepet-kapsayici');
+        let sepetPenceresi = document.getElementById('kucukSepetPenceresi');
+
+        if (sepetKapsayici) {
+            sepetKapsayici.addEventListener('mouseenter', function () {
+                sepetPenceresi.style.display = 'block';
+                fetch('/Burakk/MiniSepetPartial')
+                    .then(response => response.text())
+                    .then(htmlData => {
+                        if (htmlData.trim() !== '') {
+                            sepetPenceresi.innerHTML = htmlData;
+                        } else {
+                            sepetPenceresi.innerHTML = '<div class="p-3 text-center text-muted">Sepetiniz boş.</div>';
+                        }
+                    })
+                    .catch(err => console.error("Sepet yükleme hatası:", err));
+            });
+            sepetKapsayici.addEventListener('mouseleave', function () {
+                sepetPenceresi.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

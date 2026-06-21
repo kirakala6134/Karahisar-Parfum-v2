@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "sepet";
+    Layout = "~/sablon.cshtml";
+}
+
+<div id="genelhak">
+    <h1>Sepet Sayfası</h1>
+</div>
+<br />
+<div class="container">
+    @foreach (var deger in Model)
+     {
+      <div class="row">
+          <div class="col-md-3">
+              <img src="~/img/@deger.UrunTablo.urunresim" class="sepetresim img-fluid" alt="Alternate Text" / style="width: 250px;border-right:1px solid #ccc">
+          </div>
+          <div class="col-md-6">
+              <h3>@deger.UrunTablo.urunadi</h3>
+              <p style="color:forestgreen;font-weight:500;margin:0px auto;">Stokta var</p>
+              <p style="margin:0px auto">Ürün Cinsiyet: @deger.UrunTablo.uruncinsiyet</p>
+              <p style="margin:0px auto">Ürün Cinsiyet: @deger.UrunTablo.urunnota</p>
+              <p style="margin:0px auto"><strong>ÜCRETSİZ</strong> Teslimat mevcut</p>
+              <select class="adt" onchange="toplafiyat()" style="width:50px;">
+                  @for (int i = 1; i < 10; i++)
+                  {
+                      <option value="@i" style="text-align:center">@i</option>
+                  }
+              </select> |<a href="~/Burakk/sepettencikar?id=@deger.UrunTablo.urunid" style="color:black;text-decoration:none;font-weight:500;font-size:20px;">sil</a>
+          </div>
+          <div class="col-md-3">
+              <h2 style="text-align:right;"><span class="fyt">@deger.UrunTablo.urunfiyat &#8378</span></h2>        
+          </div>
+      </div>
+      <hr />
+     }
+<div style="border-top:1px solid #ccc">
+    <p id="sonuc" style="text-align:right;font-size:30px;"></p>
+</div>
+<script>
+    function toplafiyat()
+    {
+        let tfiyat = 0;
+        for (let a = 0; a < document.getElementsByClassName("adt").length; a++)
+        {
+            tfiyat += parseInt(document.getElementsByClassName("adt")[a].value) * parseInt(document.getElementsByClassName("fyt")[a].innerHTML)
+        }
+        document.getElementById("sonuc").innerHTML = " Ara toplam("+document.getElementsByClassName("adt").length + "ürün):" + tfiyat + "TL"
+    }
+    Window.onload = toplafiyat()
+</script>
+</div>
+
+

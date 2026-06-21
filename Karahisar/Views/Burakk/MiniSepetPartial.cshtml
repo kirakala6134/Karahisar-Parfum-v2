@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Karahisar.Models.UrunTablo>
+
+@if (Model != null && Model.Any())
+{
+    decimal toplamTutar = 0;
+
+    foreach (var urun in Model)
+    {
+        toplamTutar += (decimal)urun.urunfiyat;
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <a href="/Burakk/Urunozel?gelenid=@urun.urunid" class="dropdown-item d-flex align-items-center border-bottom py-2" style="white-space: normal;">
+                        <img src="@Url.Content("~/img/" + urun.urunresim)" style="width: 40px; height: 40px; object-fit: cover;" class="me-3 rounded">
+                        <div>
+                            <div class="fw-bold text-dark" style="font-size: 14px;">@urun.urunadi</div>
+                            <div class="text-warning fw-bold" style="font-size: 13px;">@urun.urunfiyat &#8378;</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Burakk/sepettencikar?id=@urun.urunid" style="color:red;text-decoration:none;font-weight:500;font-size:10px;"><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
+        </div>
+    }
+    <div style="padding: 10px; background: #f8f9fa;">
+        <p id="sonuc" style="text-align:center; font-size:15px; font-weight:bold; margin:0;">
+            Toplam Tutar: @toplamTutar &#8378;
+        </p>
+    </div>
+}
+else
+{
+    <span class="dropdown-item text-muted py-2">Sepetiniz boş...</span>
+}
+<style>
+    .dropdown-item:active {
+        background-color: #ffc107;
+        color: #212529;
+    }
+</style>
